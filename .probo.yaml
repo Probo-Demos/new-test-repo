@@ -13,7 +13,7 @@ steps:
     clearCaches: false
     subDirectory: web
     drupalVersion: 8
-  - name: Install Drupal site..
+  - name: Install Drupal site.
     plugin: Script
     script: |
       vendor/drush/drush/drush site-install -y --root=/var/www/html standard --db-url='mysqli://root:strongpassword@localhost/drupal'
