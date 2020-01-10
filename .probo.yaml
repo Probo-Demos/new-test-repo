@@ -13,7 +13,3 @@ steps:
     clearCaches: false
     subDirectory: web
     drupalVersion: 8
-  - name: Generate login link.
-    plugin: Script
-    script: |
-      vendor/drush/drush/drush uli
