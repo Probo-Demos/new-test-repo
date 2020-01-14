@@ -16,7 +16,7 @@ steps:
   - name: Install Drupal site.
     plugin: Script
     script: |
-      vendor/drush/drush/drush site-install -y --root=/var/www/html standard --db-url='mysqli://root:strongpassword@localhost/drupal'
+      vendor/drush/drush/drush site-install -y --root=/var/www/html standard --db-url='mysqli://probo:strongpassword@localhost/drupal'
   - name: Generate login link.
     plugin: Script
     script: |
