@@ -10,11 +10,8 @@ steps:
       composer install
   - name: Drupal 8 site install.
     plugin: Drupal
-    clearCaches: false
+    clearCaches: true
     subDirectory: web
     drupalVersion: 8
     runInstall: standard
-  - name: Generate login link.
-    plugin: Script
-    script: |
-      vendor/drush/drush/drush uli
+    loginLink: true
