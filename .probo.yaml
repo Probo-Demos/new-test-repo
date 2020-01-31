@@ -8,7 +8,7 @@ steps:
       cd /src
       composer require drupal/devel drush/drush cweagans/composer-patches
       composer install
-  - name: Configure Drupal 8 site install.
+  - name: Drupal 8 site install.
     plugin: Drupal
     clearCaches: false
     subDirectory: web
