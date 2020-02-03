@@ -14,4 +14,3 @@ steps:
     subDirectory: web
     drupalVersion: 8
     runInstall: standard
-    loginLink: true
