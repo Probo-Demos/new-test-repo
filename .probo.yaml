@@ -14,7 +14,7 @@ steps:
     devDomain: 'http://example.com'
     devHome: 'http://example.com/'
     flushCaches: true
-  - name: Install WordPress
+  - name: Install WordPress site.
     plugin: Script
     script: |
       cd /src/wordpress
