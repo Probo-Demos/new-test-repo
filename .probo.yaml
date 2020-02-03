@@ -14,3 +14,5 @@ steps:
     subDirectory: web
     drupalVersion: 8
     runInstall: standard
+    varnish:
+      enable: true
