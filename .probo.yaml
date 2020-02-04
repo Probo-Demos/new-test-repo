@@ -8,7 +8,7 @@ steps:
       cd /src
       composer require drupal/devel drush/drush cweagans/composer-patches
       composer install
-  - name: Install Drupal 8 standard profile with Varnish enabled.
+  - name: Install Drupal 8 standard profile with Varnish enabled..
     plugin: Drupal
     clearCaches: true
     subDirectory: web
