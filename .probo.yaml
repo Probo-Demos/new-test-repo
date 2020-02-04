@@ -8,7 +8,7 @@ steps:
     plugin: Script
     script: |
       wp cli update --allow-root --yes
-  - name: Wordpress site setup with Varnish enabled...
+  - name: Wordpress site setup with Varnish enabled.
     plugin: WordPressApp
     subDirectory: 'wordpress'
     devDomain: 'http://example.com'
