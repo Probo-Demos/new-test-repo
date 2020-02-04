@@ -14,8 +14,6 @@ steps:
     devDomain: 'http://example.com'
     devHome: 'http://example.com/'
     flushCaches: true
-    varnish:
-      enable: true
   - name: Install WordPress site.
     plugin: Script
     script: |
