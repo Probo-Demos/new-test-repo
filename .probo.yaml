@@ -1,25 +1,21 @@
-image: proboci/ubuntu:18.04-php7.3
+image: proboci/ubuntu:18.04-php7.4
 steps:
-  - name: Download Drupal 8 Core latest.
+  - name: Download Wordpress latest release.
     plugin: Script
     script: |
-      composer create-project drupal-composer/drupal-project:8.x-dev /tmp/src --no-interaction
-      cp -Rf /tmp/src/* /src
-      cd /src
-      composer require drupal/devel drush/drush cweagans/composer-patches
-      composer install
-  - name: Drupal site install.
-    plugin: Drupal
-    clearCaches: false
-    subDirectory: web
-    drupalVersion: 8
-    varnish:
-      enable: true
-  - name: Install Drupal site..
+      wget -c https://wordpress.org/latest.tar.gz -O - | tar -xz -C /src
+  - name: Update wp-cli.
     plugin: Script
     script: |
-      vendor/drush/drush/drush site-install -y --root=/var/www/html standard --db-url='mysqli://root:strongpassword@localhost/drupal'
-  - name: Generate login link.
+      wp cli update --allow-root --yes
+  - name: Wordpress site setup with Varnish enabled.
+    plugin: WordPressApp
+    subDirectory: 'wordpress'
+    devDomain: 'http://example.com'
+    devHome: 'http://example.com/'
+    flushCaches: true
+  - name: Install WordPress site.
     plugin: Script
     script: |
-      vendor/drush/drush/drush uli
+      cd /src/wordpress
+      wp core install --url=$BUILD_DOMAIN --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@example.com --allow-root
